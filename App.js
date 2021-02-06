@@ -13,11 +13,13 @@ import {tambah }from './components/tambah'
 import {hapus } from './components/hapus'
 import {update } from './components/update'
 import {view } from './components/view'
+import {viewAll } from './components/viewAll'
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 const homes = createStackNavigator();
 const Drawer =createDrawerNavigator();
+
 
 // function DrawerScreen(){
 //   <Drawer.Navigator>
@@ -27,21 +29,22 @@ const Drawer =createDrawerNavigator();
 
 function StackScreen(){
   return(
-      <Stack.Navigator initialRouteName="Main">
-          <Stack.Screen name="Main" component={Main} options={{title:'KOMIDA MOBILE APPS'}}/>
-          {/* <Stack.Screen name="tabs" component={tabScreen} options={{title:'KOMIDA MOBILE APPS'}}/>   */}
+      <Stack.Navigator initialRouteName="Main" headerMode='none'>
+          <Stack.Screen name="Main" component={Main}/>
+          {/* <Stack.Screen name="setting" component={settingScreen}/>   */}
       </Stack.Navigator>
   );
   }
 
 function Main(){
   return(
-    <homes.Navigator headerMode='none'>
-    <homes.Screen name="submit" component={homeScreen} />
-    <homes.Screen name="tambah" component={tambah} />
-    <homes.Screen name="update" component={update} />
-    <homes.Screen name="hapus" component={hapus} />
-    <homes.Screen name="view" component={view} /> 
+    <homes.Navigator >
+    <homes.Screen name="submit" component={homeScreen} options={{title:'KOMIDA MOBILE APPS'}} />
+    <homes.Screen name="tambah" component={tambah} options={{title:'KOMIDA MOBILE APPS'}} />
+    <homes.Screen name="update" component={update} options={{title:'KOMIDA MOBILE APPS'}}/>
+    <homes.Screen name="hapus" component={hapus} options={{title:'KOMIDA MOBILE APPS'}} />
+    <homes.Screen name="view" component={view} options={{title:'KOMIDA MOBILE APPS'}} /> 
+    <homes.Screen name="viewAll" component={viewAll} options={{title:'KOMIDA MOBILE APPS'}} /> 
     </homes.Navigator>
   );
   }

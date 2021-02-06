@@ -1,22 +1,67 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icons from 'react-native-vector-icons/Ionicons';
 import { Input } from 'react-native-elements';
 import Constants from 'expo-constants';
 import * as SQLite from 'expo-sqlite';
-import { NavigationContainer } from '@react-navigation/native';
+import Mybutton from './Mybutton'
 
 const db = SQLite.openDatabase('komida.db');
 
 export const tambah = ({navigation}) => {
-    const [text, setText] = useState('')
+   let [userName, setUserName] = useState('');
+   let [userAddress, setUserAddress] = useState('');
+   let [userContact, setUserContact] = useState('');
+
+   let tambah_user = () => {
+       console.log(userName, userAddress, userContact);
+
+    if(!userName){
+        alert('Mohon masukan Nama');
+        return;
+    }
+    if(!userAddress){
+        alert ('Mohon Masukan Alamat');
+        return;
+    }
+      if(!userContact){
+        alert ('Mohon Masukan Kontak');
+        return;
+    }
+
+    db.transaction(function (tx){
+        tx.executeSql(
+            'INSERT INTO table_user(user_name, user_address, user_contact) VALUES (?,?,?)',
+            [userName, userAddress, userContact],
+            (tx,results) => {
+                console.log('Results', results.rowsAffected);
+                if(results.rowsAffected > 0){
+                    alert(
+                        'Success',
+                        'kamu sudah mendaftarkan',
+                        [
+                            {
+                                text: 'Ok',
+                                onPress: () => navigation.navigate('homeScreen'),
+                            },   
+                        ],
+                        { cancelable: false }
+                    );
+                } 
+                else alert('GAGAL');
+            }
+        ); 
+    });   
+};
+        
+
 
  return(
      <ScrollView>
      <View style={styles.container}>
        
-    <Input
+    {/* <Input
     placeholder='NIK'
     leftIcon={
         <Icon
@@ -25,18 +70,18 @@ export const tambah = ({navigation}) => {
         color='black'
         />
     }
-    />
+    /> */}
     <Input
+    onChangeText={(userName) => setUserName(userName) }
     placeholder='NAMA KARYAWAN'
     leftIcon={
         <Icon
         name='user-o'
         size={24}
-        color='black'
-        />
-    }
+        color='black' /> } 
     />
     <Input
+    onChangeText={(userAddress) => setUserAddress(userAddress) }
     placeholder='ALAMAT'
     leftIcon={
         <Icons
@@ -47,7 +92,9 @@ export const tambah = ({navigation}) => {
     }
     />
     <Input
+    onChangeText={(userContact) => setUserContact(userContact) }
     placeholder='NO TELEPON'
+    keyboardType="numeric"
     leftIcon={
         <Icon
         name='mobile-phone'
@@ -58,18 +105,15 @@ export const tambah = ({navigation}) => {
     /> 
     <View style={styles.buttonrange}>
                
-        <View style={styles.buttonrange2}>
+        {/* <View style={styles.buttonrange2}>
          <TouchableOpacity style={styles.button}
          onPress={() => navigation.goBack()}>
             <Text style={{fontSize:20}}>KEMBALI</Text>
             </TouchableOpacity>
-        </View>
+        </View> */}
 
      <View style={styles.buttonrange2}>
-         <TouchableOpacity style={styles.button}
-         onPress={() => alert('nyantai hela')}>
-            <Text style={{fontSize:20}}>SIMPAN</Text>
-        </TouchableOpacity>
+        <Mybutton title="Simpan" customClick={tambah_user} />
      </View>
         
     </View>   
@@ -84,13 +128,6 @@ export const tambah = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 23
-  },
-  input: {
-      margin: 15,
-      height: 40,
-      width: 300,
-      borderColor: '#7a42f4',
-      borderWidth: 1
   },
   button: {
     shadowColor: 'rgba(0,0,0, .4)', // IOS
