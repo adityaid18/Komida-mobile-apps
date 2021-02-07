@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Text, View , StyleSheet, KeyboardAvoidingView, SafeAreaView, ScrollView, Alert,} from 'react-native';
-import Mybutton from './Mybutton'
-import * as SQLite from 'expo-sqlite'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icons from 'react-native-vector-icons/Ionicons';
 import { Input } from 'react-native-elements';
+import * as SQLite from 'expo-sqlite'
+import Mybutton from './Mybutton'
 
 const db = SQLite.openDatabase('komida.db');
 

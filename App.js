@@ -19,7 +19,6 @@ const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 const homes = createStackNavigator();
 const profiles = createStackNavigator();
-const Drawer =createDrawerNavigator();
 
 
 function StackScreen(){
@@ -76,7 +75,7 @@ export default function App() {
   React.useEffect( ()=> {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 3000);
   },[]);
 
 if (isLoading){
