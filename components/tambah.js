@@ -37,13 +37,13 @@ export const tambah = ({navigation}) => {
             (tx,results) => {
                 console.log('Results', results.rowsAffected);
                 if(results.rowsAffected > 0){
-                    alert(
+                    Alert.alert(
                         'Success',
-                        'kamu sudah mendaftarkan',
+                        'Tambah Baru Berhasil',
                         [
                             {
                                 text: 'Ok',
-                                onPress: () => navigation.navigate('homeScreen'),
+                                onPress: () => navigation.navigate('viewAll'),
                             },   
                         ],
                         { cancelable: false }
@@ -93,7 +93,7 @@ export const tambah = ({navigation}) => {
     />
     <Input
     onChangeText={(userContact) => setUserContact(userContact) }
-    placeholder='NO TELEPON'
+    placeholder='NO HANDPHONE'
     keyboardType="numeric"
     leftIcon={
         <Icon
@@ -103,19 +103,10 @@ export const tambah = ({navigation}) => {
         />
     }
     /> 
-    <View style={styles.buttonrange}>
                
-        {/* <View style={styles.buttonrange2}>
-         <TouchableOpacity style={styles.button}
-         onPress={() => navigation.goBack()}>
-            <Text style={{fontSize:20}}>KEMBALI</Text>
-            </TouchableOpacity>
-        </View> */}
 
      <View style={styles.buttonrange2}>
-        <Mybutton title="Simpan" customClick={tambah_user} />
-     </View>
-        
+        <Mybutton title="Simpan" customClick={tambah_user} />   
     </View>   
     
 
@@ -126,44 +117,14 @@ export const tambah = ({navigation}) => {
 
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 23
-  },
-  button: {
-    shadowColor: 'rgba(0,0,0, .4)', // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
-    shadowRadius: 1, //IOS
-    backgroundColor: '#1c9963',
-    elevation: 2, // Android
-    height: 50,
-    width: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-},
-button2: {
-    shadowColor: 'rgba(0,0,0, .4)', // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
-    shadowRadius: 1, //IOS
-    backgroundColor: '#1c9963',
-    elevation: 2, // Android
-    height: 50,
-    width: 75,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-},
-buttonrange: {
-    justifyContent:'center',
-    paddingLeft:13,
-    flexDirection:'row'
+container: {
+    paddingTop: 20,
+    backgroundColor: '#fff'
 },
 buttonrange2: {
     justifyContent:'center',
     alignItems:'center',
     paddingTop:20,
-    paddingRight:10
+   
 }
 });

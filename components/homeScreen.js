@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Text, View , StyleSheet, TouchableOpacity, ActivityIndicator} from 'react-native';
+import { Text, View , StyleSheet, TouchableOpacity, ActivityIndicator, SafeAreaView, ScrollView} from 'react-native';
 import * as SQLite from 'expo-sqlite';
+import {AntDesign, MaterialIcons, } from '@expo/vector-icons'
 
 export const Splash = () =>{
 return(
@@ -35,71 +36,170 @@ export const homeScreen = ({navigation}) => {
 
 
 return(
+    <SafeAreaView>
+        <ScrollView>
      <View style={styles.container}>
-         <View style={styles.subcontainer}>
-         <TouchableOpacity style={styles.button}
-         onPress={() => navigation.push('tambah')}>
-            <Text style={{fontSize:30}}>TAMBAH BARU</Text>
+
+         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
+
+         <View  style={{flex: 1, alignItems:'center'}}>
+         <TouchableOpacity 
+                style={{
+                    shadowColor: 'rgba(0,0,0, .4)', // IOS
+                    shadowOffset: { height: 1, width: 1 }, // IOS
+                    shadowOpacity: 1, // IOS
+                    shadowRadius: 1, //IOS
+                    elevation: 2, // Android
+                    height: 130,
+                    width: 130,
+                    justifyContent: 'center',
+                    alignItems: 'center',               
+                    borderRadius: 10,
+                    backgroundColor: '#1e90ff'
+                }}
+                onPress={() => navigation.push('tambah')}>
+                <AntDesign name="addfile" size={50} color="black" />
+                <Text style={{fontSize:12, fontWeight:'bold'}}>TAMBAH BARU</Text>
         </TouchableOpacity>
          </View>
 
-         <View style={styles.subcontainer}>
-        <TouchableOpacity style={styles.button}
-         onPress={() => navigation.navigate('update')}>
-            <Text style={{fontSize:30}}>UPDATE</Text>
+         <View style={{flex: 1, alignItems:'center'}}>
+        <TouchableOpacity 
+                style={{
+                    shadowColor: 'rgba(0,0,0, .4)', // IOS
+                    shadowOffset: { height: 1, width: 1 }, // IOS
+                    shadowOpacity: 1, // IOS
+                    shadowRadius: 1, //IOS
+                    elevation: 2, // Android
+                    height: 130,
+                    width: 130,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 10,
+                    backgroundColor: '#e9967a'
+                }}
+                onPress={() => navigation.navigate('update')}>
+                    <MaterialIcons name="update" size={50} color="black" />
+                    <Text style={{fontSize:12, fontWeight:'bold'}}>UPDATE</Text>
         </TouchableOpacity>
         </View>
 
-        <View style={styles.subcontainer}>
-        <TouchableOpacity style={styles.button}
-         onPress={() => navigation.navigate('hapus')}>
-            <Text style={{fontSize:30}}>HAPUS</Text>
-        </TouchableOpacity>
         </View>
 
-        <View style={styles.subcontainer}>
-        <TouchableOpacity style={styles.button}
-         onPress={() => navigation.navigate('view')}>
-            <Text style={{fontSize:30}}>LIHAT</Text>
+         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', paddingTop:20}}>
+
+         <View  style={{flex: 1, alignItems:'center'}}>
+         <TouchableOpacity 
+                style={{
+                    shadowColor: 'rgba(0,0,0, .4)', // IOS
+                    shadowOffset: { height: 1, width: 1 }, // IOS
+                    shadowOpacity: 1, // IOS
+                    shadowRadius: 1, //IOS
+                    elevation: 2, // Android
+                    height: 130,
+                    width: 130,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 10,
+                    backgroundColor: '#1c9963'
+                }}
+                onPress={() => navigation.push('view')}>
+                <MaterialIcons name="pageview" size={50} color="black" />
+                <Text style={{fontSize:12, fontWeight:'bold'}}>CARI</Text>
         </TouchableOpacity>
+         </View>
+
+         <View style={{flex: 1, alignItems:'center'}}>
+        <TouchableOpacity 
+                style={{
+                    shadowColor: 'rgba(0,0,0, .4)', // IOS
+                    shadowOffset: { height: 1, width: 1 }, // IOS
+                    shadowOpacity: 1, // IOS
+                    shadowRadius: 1, //IOS
+                    elevation: 2, // Android
+                    height: 130,
+                    width: 130,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 10,
+                    backgroundColor: '#7fffd4'
+                }}
+                onPress={() => navigation.navigate('viewAll')}>
+                    <MaterialIcons name="preview" size={50} color="black" />
+                    <Text style={{fontSize:12, fontWeight:'bold'}}>LIHAT SEMUA</Text>
+        </TouchableOpacity>
+        </View>
+    
+
         </View>
 
-        <View style={styles.subcontainer}>
-        <TouchableOpacity style={styles.button}
-         onPress={() => navigation.navigate('viewAll')}>
-            <Text style={{fontSize:30}}>LIHAT SEMUA</Text>
+
+         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center', paddingTop:20}}>
+
+         <View  style={{flex: 1, alignItems:'center'}}>
+         <TouchableOpacity 
+                style={{
+                    shadowColor: 'rgba(0,0,0, .4)', // IOS
+                    shadowOffset: { height: 1, width: 1 }, // IOS
+                    shadowOpacity: 1, // IOS
+                    shadowRadius: 1, //IOS
+                    elevation: 2, // Android
+                    height: 130,
+                    width: 130,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 10,
+                    backgroundColor: '#ff4500'
+                }}
+                onPress={() => navigation.push('hapus')}>
+                <MaterialIcons name="auto-delete" size={50} color="black" />
+                <Text style={{fontSize:12, fontWeight:'bold'}}>HAPUS</Text>
+        </TouchableOpacity>
+         </View>
+
+         <View style={{flex: 1, alignItems:'center'}}>
+        <TouchableOpacity 
+                style={{
+                    shadowColor: 'rgba(0,0,0, .4)', // IOS
+                    shadowOffset: { height: 1, width: 1 }, // IOS
+                    shadowOpacity: 1, // IOS
+                    shadowRadius: 1, //IOS
+                    elevation: 2, // Android
+                    height: 130,
+                    width: 130,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 10,
+                    backgroundColor: '#708090'
+                }}
+                onPress={() => alert('disable')}>
+                <MaterialIcons name="disabled-by-default" size={50} color="black" />
+                <Text style={{fontSize:12, fontWeight:'bold'}}>Disable</Text>
         </TouchableOpacity>
         </View>
+    
+
+        </View>
+
      </View>
+        </ScrollView>
+     </SafeAreaView>
  );
 }
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems:'center',
     backgroundColor: '#fff',
-    paddingTop: 20
+    paddingTop: 15
   },
-   button: {
-    shadowColor: 'rgba(0,0,0, .4)', // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
-    shadowRadius: 1, //IOS
-    backgroundColor: '#1c9963',
-    elevation: 2, // Android
-    height: 50,
-    width: 300,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-},
 horizontal: {
     flexDirection: "row",
     justifyContent: "space-around",
-    padding: 10
+    padding: 15
   },
-  subcontainer:{
-      paddingTop:20,
-  }
+  
 });
 

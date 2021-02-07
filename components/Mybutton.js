@@ -23,13 +23,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#1c9963',
     elevation: 2, // Android
     height: 50,
-    width: 300,
+    width: 350,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
 },
   text: {
     color: '#ffffff',
+    fontSize: 20
   },
 });
 

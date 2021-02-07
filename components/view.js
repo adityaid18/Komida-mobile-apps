@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Alert, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {  SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Icons from 'react-native-vector-icons/Ionicons';
 import { Input, Card } from 'react-native-elements';
-import Constants from 'expo-constants';
 import * as SQLite from 'expo-sqlite';
 import Mybutton from './Mybutton'
 
@@ -26,16 +24,12 @@ export const view = () =>{
           if (len > 0) {
             setUserData(results.rows.item(0));
           } else {
-            alert ( 'Nama Tidak Ditemukan');
+            alert ( 'Karyawan Tidak Ditemukan');
           }
         }
       );
     });
   };
-
-
-
-
 
 
 return(
@@ -47,7 +41,7 @@ return(
             onChangeText={(inputUserId) => setInputUserId(inputUserId)}
             leftIcon={
                    <Icon
-                    name='user-o'
+                    name='id-card-o'
                     size={24}
                     color='black'
                     />
@@ -55,16 +49,23 @@ return(
             />
           </View>
 
-          <View style={styles.buttonrange2}>
+          <View style={styles.jarak}>
              <Mybutton title="Cari" customClick={cariUser} />
           </View>
 
           <Card>
           <View style={{marginLeft:35, marginRight: 35, marginTop: 10}}>
-            <Text>User id: {userData.user_id}</Text>
-            <Text>Nama Karyawan: {userData.user_name}</Text>
-            <Text>Alamat: {userData.user_address}</Text>
-            <Text>Nomor Handphone: {userData.user_contact}</Text>
+            <Text style={styles.textheader}>User ID</Text>
+            <Text style={styles.textbottom}>{userData.user_id}</Text>
+
+            <Text style={styles.textheader}>Nama Karyawan</Text>
+            <Text style={styles.textbottom}>{userData.user_name}</Text>
+
+            <Text style={styles.textheader}>Alamat</Text>
+            <Text style={styles.textbottom}>{userData.user_address}</Text>
+
+            <Text style={styles.textheader}>No Handphone</Text>
+            <Text style={styles.textbottom}>{userData.user_contact}</Text>
           </View>
           </Card>
 
@@ -78,43 +79,24 @@ return(
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 23
+    paddingTop: 20,
+    backgroundColor:'#fff'
   },
-  button: {
-    shadowColor: 'rgba(0,0,0, .4)', // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
-    shadowRadius: 1, //IOS
-    backgroundColor: '#1c9963',
-    elevation: 2, // Android
-    height: 50,
-    width: 300,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-},
-button2: {
-    shadowColor: 'rgba(0,0,0, .4)', // IOS
-    shadowOffset: { height: 1, width: 1 }, // IOS
-    shadowOpacity: 1, // IOS
-    shadowRadius: 1, //IOS
-    backgroundColor: '#1c9963',
-    elevation: 2, // Android
-    height: 50,
-    width: 75,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-},
-buttonrange: {
-    justifyContent:'center',
-    paddingLeft:13,
-    flexDirection:'row'
-},
-buttonrange2: {
+  jarak: {
     justifyContent:'center',
     alignItems:'center',
-    paddingTop:20,
-    paddingRight:10
-}
+    flexDirection:'row',
+    paddingTop:10
+},
+textheader: {
+    color: '#111',
+    fontSize: 12,
+    fontWeight: '700'
+  },
+  textbottom: {
+    color: '#111',
+    fontSize:18
+  },
 });
+
+
