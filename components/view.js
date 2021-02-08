@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Card } from 'react-native-elements';
 import * as SQLite from 'expo-sqlite';
 import Mybutton from './Mybutton'
+import { ScrollView } from 'react-native-gesture-handler';
 
 const db = SQLite.openDatabase('komida.db');
 
@@ -33,7 +34,8 @@ export const view = () =>{
 
 
 return(
-        <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <ScrollView >
           <View>
             <Input 
             placeholder="Masukan User Id"
@@ -53,7 +55,7 @@ return(
           </View>
 
           <Card>
-          <View style={{marginLeft:35, marginRight: 35, marginTop: 10}}>
+          {/* <View style={{marginLeft:35, marginRight: 35, marginTop: 10}}> */}
             <Text style={styles.textheader}>User ID</Text>
             <Text style={styles.textbottom}>{userData.user_id}</Text>
 
@@ -65,11 +67,12 @@ return(
 
             <Text style={styles.textheader}>No Handphone</Text>
             <Text style={styles.textbottom}>{userData.user_contact}</Text>
-          </View>
+          {/* </View> */}
           </Card>
 
 
-        </View>
+        </ScrollView>
+      </SafeAreaView>
      
  );
 }
@@ -77,13 +80,15 @@ return(
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    flex: 1,
+    justifyContent: 'center',
+    paddingTop:25,
+    backgroundColor: '#fff'
+    
   },
   jarak: {
-    justifyContent:'center',
     alignItems:'center',
-    flexDirection:'row',
-    paddingTop:10
+    paddingTop:10,
 },
 textheader: {
     color: '#111',
