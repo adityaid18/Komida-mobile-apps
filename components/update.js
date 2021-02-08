@@ -67,7 +67,7 @@ export const update = ({navigation}) =>{
         db.transaction((tx) => {
           tx.executeSql(
             'UPDATE table_user set user_name=?, user_address=?, user_contact=? WHERE user_id=?',
-            [userName, userContact, userAddress, inputUserID],
+            [userName, userAddress, userContact, inputUserID],
             (tx, results) => {
               console.log('Results', results.rowsAffected);
               if(results.rowsAffected > 0) {
@@ -133,7 +133,7 @@ return(
                   />
               <Input
               onChangeText={(userContact) => setUserContact(userContact) }
-              value={'' + userContact}
+              value={''+userContact}
               placeholder='NO HANDPHONE'
               keyboardType="numeric"
               leftIcon={

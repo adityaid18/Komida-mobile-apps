@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "KomidaMobileApps.apk"
+      "package": "com.KomidaMobileApps.KomidaMobileApps"
     },
     "web": {
       "favicon": "./assets/favicon.png"

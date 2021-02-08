@@ -48,7 +48,7 @@ export const viewAll = () => {
 
     return(
        
-           <SafeAreaView style={{flex:1}}>
+           <SafeAreaView style={{flex:1, backgroundColor:'#fff'}}>
                <View style={{ flex:1}}>
                    <View style={{flex:1}}>
                         <FlatList 

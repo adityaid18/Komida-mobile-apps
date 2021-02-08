@@ -33,7 +33,6 @@ export const view = () =>{
 
 
 return(
-    <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           <View>
             <Input 
@@ -71,7 +70,6 @@ return(
 
 
         </View>
-    </SafeAreaView>
      
  );
 }
@@ -80,7 +78,6 @@ return(
 const styles = StyleSheet.create({
   container: {
     paddingTop: 20,
-    backgroundColor:'#fff'
   },
   jarak: {
     justifyContent:'center',
@@ -98,5 +95,6 @@ textheader: {
     fontSize:18
   },
 });
+
 
 

@@ -36,8 +36,6 @@ export const homeScreen = ({navigation}) => {
 
 
 return(
-    <SafeAreaView>
-        <ScrollView>
      <View style={styles.container}>
 
          <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
@@ -182,8 +180,6 @@ return(
         </View>
 
      </View>
-        </ScrollView>
-     </SafeAreaView>
  );
 }
 

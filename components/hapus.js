@@ -40,7 +40,7 @@ export const hapus = ({navigation}) => {
 return(
      <SafeAreaView style={{flex: 1 }}>
        <View style={{ flex: 1, backgroundColor: '#fff'}}>
-         <View style={{flex:1, alignItems:'center'}}>
+         <View style={{flex:1, alignItems:'center', paddingTop:20}}>
            <Input
               onChangeText={(inputUserId) => setInputUserId(inputUserId) }
               placeholder='User Id'
