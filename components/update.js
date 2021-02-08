@@ -101,7 +101,7 @@ return(
               >
                 <Input
                     onChangeText={(inputUserID) => setInputUserId(inputUserID) }
-                    placeholder='User Id'
+                    placeholder='Masukan User Id'
                     leftIcon={
                         <Icon
                         name='id-card-o'

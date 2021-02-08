@@ -188,8 +188,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems:'center',
+    justifyContent:'center',
     backgroundColor: '#fff',
-    paddingTop: 15
   },
 horizontal: {
     flexDirection: "row",
