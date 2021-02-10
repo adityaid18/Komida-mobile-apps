@@ -144,7 +144,7 @@ return(
                   />
               }
               /> 
-                <Mybutton title="Update User" customClick={updateUser} />
+                <Mybutton title="Update" customClick={updateUser} />
               </KeyboardAvoidingView>
             </ScrollView>
          </View>

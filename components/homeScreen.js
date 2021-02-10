@@ -1,15 +1,10 @@
-import * as React from 'react'
-import { Text, View , StyleSheet, TouchableOpacity, ActivityIndicator, SafeAreaView, ScrollView} from 'react-native';
+import React from 'react'
+import { Text, View , StyleSheet, TouchableOpacity, } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 import {AntDesign, MaterialIcons, } from '@expo/vector-icons'
 
-export const Splash = () =>{
-return(
-     <View style={[styles.container, styles.horizontal]}>
-     <ActivityIndicator size="large" color="#00ff00" />
-     </View>
- );
-}
+
+
 
 const db = SQLite.openDatabase('komida.db');
 
@@ -78,7 +73,7 @@ return(
                 }}
                 onPress={() => navigation.navigate('update')}>
                     <MaterialIcons name="update" size={50} color="black" />
-                    <Text style={{fontSize:12, fontWeight:'bold'}}>UPDATE</Text>
+                    <Text style={{fontSize:12, fontWeight:'bold'}}>EDIT</Text>
         </TouchableOpacity>
         </View>
 

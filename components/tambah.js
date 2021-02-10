@@ -58,8 +58,8 @@ export const tambah = ({navigation}) => {
 
 
  return(
-     <ScrollView>
-     <View style={styles.container}>
+     <ScrollView style={styles.container}>
+     <View >
        
     {/* <Input
     placeholder='NIK'

@@ -43,14 +43,14 @@ return(
          <View style={{flex:1, alignItems:'center', paddingTop:20}}>
            <Input
               onChangeText={(inputUserId) => setInputUserId(inputUserId) }
-              placeholder='User Id'
+              placeholder='Masukan User Id'
               leftIcon={
                       <Icon
                         name='id-card-o'
                         size={24}
                         color='black' /> } 
                     />
-            <Mybutton title="Delete User" customClick={deleteUser} />     
+            <Mybutton title="Delete" customClick={deleteUser} />     
          </View>
        </View>
      </SafeAreaView>
