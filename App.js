@@ -1,4 +1,5 @@
 import React from 'react';
+import {  Button, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator, } from '@react-navigation/stack';
@@ -26,7 +27,7 @@ const SearchStack = createStackNavigator();
 
 const DrawerScreen = () => (
     <Drawer.Navigator initialRouteName="Home">
-       <Drawer.Screen name="Home" component={TabScreen}/> 
+      <Drawer.Screen name="Home" component={TabScreen}/> 
       <Drawer.Screen name="Profile" component={ProfileStackScreen}/>    
     </Drawer.Navigator>
   );
@@ -65,8 +66,15 @@ const SearchStackScreen = () => (
   
 
 const HomeStackScreen = () => (
-    <HomeStack.Navigator > 
-    <HomeStack.Screen name="submit" component={homeScreen} options={{title:'KOMIDA MOBILE APPS'}} />  
+    <HomeStack.Navigator 
+        headerMode='screen' 
+        screenOptions={{ 
+          headerTintColor:'white',
+          headerStyle: {backgroundColor: 'tomato'},
+          headerTitleAlign:'center'
+        }}
+     > 
+    <HomeStack.Screen name="submit" component={homeScreen} options={{title:'KOMIDA MOBILE APPS',}} />  
     <HomeStack.Screen name="tambah" component={tambah} options={{title:'KOMIDA MOBILE APPS'}} />
     <HomeStack.Screen name="update" component={update} options={{title:'KOMIDA MOBILE APPS'}}/>
     <HomeStack.Screen name="hapus" component={hapus} options={{title:'KOMIDA MOBILE APPS'}} />

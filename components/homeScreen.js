@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View , StyleSheet, TouchableOpacity, } from 'react-native';
 import * as SQLite from 'expo-sqlite';
-import {AntDesign, MaterialIcons, } from '@expo/vector-icons'
+import {AntDesign, MaterialIcons, MaterialCommunityIcons} from '@expo/vector-icons'
 
 
 
@@ -142,7 +142,7 @@ return(
                     justifyContent: 'center',
                     alignItems: 'center',
                     borderRadius: 10,
-                    backgroundColor: '#ff4500'
+                    backgroundColor: '#ff0000'
                 }}
                 onPress={() => navigation.push('hapus')}>
                 <MaterialIcons name="auto-delete" size={50} color="black" />
@@ -163,11 +163,11 @@ return(
                     justifyContent: 'center',
                     alignItems: 'center',
                     borderRadius: 10,
-                    backgroundColor: '#708090'
+                    backgroundColor: '#b0c4de'
                 }}
-                onPress={() => alert('disable')}>
-                <MaterialIcons name="disabled-by-default" size={50} color="black" />
-                <Text style={{fontSize:12, fontWeight:'bold'}}>Disable</Text>
+                onPress={() => navigation.toggleDrawer()}>
+                <MaterialCommunityIcons name="human-greeting" size={50} color="black" />
+                <Text style={{fontSize:12, fontWeight:'bold'}}>PROFILE</Text>
         </TouchableOpacity>
         </View>
     
